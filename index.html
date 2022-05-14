@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Project</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Koulen&family=Libre+Bodoni:ital@1&display=swap");
+      body {
+        background-color: black;
+        font-family: "Libre Bodoni", serif;
+        height: 100vh;
+      }
+
+      header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+      }
+
+      .videoContainer {
+        width: 100%;
+        z-index: -1;
+        opacity: 0.5;
+        object-fit: cover;
+        margin-bottom: 1%;
+      }
+      h1 {
+        color: burlywood;
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        font-size: 3rem;
+      }
+
+      .switch {
+        color: cornflowerblue;
+      }
+
+      button {
+        background-color: #004040;
+        color: cornflowerblue;
+        border: 2px solid burlywood;
+        border-radius: 10px;
+        padding: 8px;
+        font-size: 20px;
+        position: absolute;
+        left: 45%;
+        bottom: 35%;
+        font-family: "Libre Bodoni", serif;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+      span.pause {
+        border: 1px solid crimson;
+        border-radius: 10px;
+        padding: 4px;
+        color: crimson;
+      }
+      span.play {
+        font-weight: bolder;
+        border: 1px solid lightgreen;
+        border-radius: 10px;
+        padding: 4px;
+        color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <video class="videoContainer" muted autoplay loop>
+        <source src="videos/video.mp4" type="video/mp4" />
+      </video>
+      <h1>Video Project</h1>
+      <button>
+        <span class="play">Play</span>
+        <span class="switch">-</span>
+        <span class="pause">Pause</span>
+      </button>
+    </header>
+    <script>
+      const switchplay = document.querySelector("button span.play");
+      const switchpause = document.querySelector("button span.pause");
+      const video = document.querySelector(".videoContainer");
+      switchplay.addEventListener("click", function () {
+        switchplay.style = "font-weight: bolder";
+        switchpause.style = "font-weight: lighter";
+        video.play();
+      });
+      switchpause.addEventListener("click", function () {
+        switchpause.style = "font-weight: bolder";
+        switchplay.style = "font-weight: lighter";
+        video.pause();
+      });
+    </script>
+  </body>
+</html>
